@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.dece9678.css",
-    "main.js": "/static/js/main.9fdfeff6.js",
-    "static/media/background.png": "/static/media/background.7d7d88a8b4fee8fe76a8.png",
-    "static/media/BlenderPro-Book.woff": "/static/media/BlenderPro-Book.ed35621e4ed57e55f6df.woff",
-    "index.html": "/index.html",
-    "main.dece9678.css.map": "/static/css/main.dece9678.css.map",
-    "main.9fdfeff6.js.map": "/static/js/main.9fdfeff6.js.map"
+    "main.css": "/kanban/static/css/main.8f71a069.css",
+    "main.js": "/kanban/static/js/main.e545277e.js",
+    "static/media/background.png": "/kanban/static/media/background.7d7d88a8b4fee8fe76a8.png",
+    "static/media/BlenderPro-Book.woff": "/kanban/static/media/BlenderPro-Book.ed35621e4ed57e55f6df.woff",
+    "index.html": "/kanban/index.html",
+    "main.8f71a069.css.map": "/kanban/static/css/main.8f71a069.css.map",
+    "main.e545277e.js.map": "/kanban/static/js/main.e545277e.js.map"
   },
   "entrypoints": [
-    "static/css/main.dece9678.css",
-    "static/js/main.9fdfeff6.js"
+    "static/css/main.8f71a069.css",
+    "static/js/main.e545277e.js"
   ]
 }
