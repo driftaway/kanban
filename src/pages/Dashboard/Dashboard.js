@@ -11,7 +11,7 @@ const Dashboard = ({ username, setUsername }) => {
   return (
     <div className='dashboard'>
       {/* <TopBar username={username} /> */}
-      Dashboard here...
+      Dashboard here....
     </div>
   );
 }
