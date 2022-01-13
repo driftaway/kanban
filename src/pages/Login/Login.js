@@ -17,20 +17,16 @@ const Login = ({ setToastMessage }) => {
     event.preventDefault()
     setLoading(true)
     const response = await signInWithEmailAndPassword(email, password)
+    setToastMessage(response)
+    setLoading(false)
     if (response[0] === 'error') {
       setPassword('')
       setEmail('')
+      return false
     }
-    setToastMessage(response)
-    setLoading(false)
+
+    navigate('/dashboard');
   }
-  useEffect(() => {
-    if (loading) {
-      // maybe trigger a loading screen
-      return;
-    }
-    if (user) navigate('/dashboard');
-  }, [user, loading]);
 
   return (
     <div className='login'>
@@ -41,7 +37,7 @@ const Login = ({ setToastMessage }) => {
         >
           <h2>Sign In</h2>
 
-          <div style={{ width: '100%' }}>
+          <div style={{ width: '100%', marginTop: 20 }}>
             <h5 style={{ margin: '8px 0' }}>Email</h5>
             <TextField 
               fullWidth

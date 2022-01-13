@@ -6,7 +6,7 @@ import { AccountCircle, Dashboard, Notifications, PowerSettingsNew } from '@mui/
 import { Button } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
 
-const TopBar = ({ username }) => {
+const TopBar = ({ displayName }) => {
   const navigate = useNavigate()
 
   return (
@@ -18,7 +18,7 @@ const TopBar = ({ username }) => {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Button onClick={() => navigate('/profile')} disableRipple variant='outlined' startIcon={<AccountCircle style={{ fontSize: 18 }} />}>
-            {username.join(' ')}
+            {displayName || 'Set your username'}
           </Button>
           
           <Notifications onClick={() => navigate('/notifications')} />

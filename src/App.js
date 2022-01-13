@@ -2,7 +2,7 @@ import { Alert, Snackbar } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { auth, db } from './firebase';
+import { auth } from './firebase';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -13,31 +13,15 @@ import Notifications from './pages/Notifications';
 
 const App = () => {
   const [toastMessage, setToastMessage] = useState(undefined)
-  const [username, setUsername] = useState('');
   const navigate = useNavigate();
-  const [user, loading, error] = useAuthState(auth);
-
-  const fetchUserName = async () => {
-    try {
-      const query = await db
-        .collection('users')
-        .where('uid', '==', user?.uid)
-        .get();
-
-      const data = await query.docs[0].data();
-      console.log(123, data)
-      setUsername([data.firstname, data.lastname])
-    } catch (err) {
-      console.error(err);
-      alert('An error occured while fetching user data');
-    }
-  };
+  const [userInfo, setUserInfo] = useState([])
+  const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
     if (loading) return;
     if (!user) return navigate('/')
-    fetchUserName();
-  }, [user, loading]);
+    if (user && userInfo.length === 0) setUserInfo(user.providerData[0])
+  }, [user, loading, userInfo]);
 
   return (
     <>
@@ -56,19 +40,18 @@ const App = () => {
           </Alert>
         </Snackbar>}
 
-        {user && username && <TopBar username={username} />}
+        {user && <TopBar displayName={user.displayName} />}
 
       <Routes>
-        <Route path='/' element={<Login setToastMessage={setToastMessage} />} />
-        <Route path='/register' element={<Register />} />
-        {user && username &&
+        {user && userInfo.length !== 0 && 
           <>
-            <Route path='/dashboard' element={<Dashboard username={username} setUsername={setUsername} />} />
-            <Route path='/profile' element={<Profile username={username} user={user} />} />
-            <Route path='/settings' element={<Settings username={username} setUsername={setUsername} />} />
-            <Route path='/notifications' element={<Notifications username={username} setUsername={setUsername} />} />
-          </>
-        }
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/profile' element={<Profile setUserInfo={setUserInfo} userInfo={userInfo} />} />
+            <Route path='/settings' element={<Settings user={user.displayName} />} />
+            <Route path='/notifications' element={<Notifications user={user} />} />
+          </>}
+        <Route path='/register' element={<Register setToastMessage={setToastMessage} />} />
+        <Route path='/' element={<Login setToastMessage={setToastMessage} />} />
       </Routes>
     </>
   );

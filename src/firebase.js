@@ -1,3 +1,4 @@
+import { updateProfile } from 'firebase/auth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -20,28 +21,26 @@ const auth = firebase.auth();
 
 const signInWithEmailAndPassword = async (email, password) => {
   try {
-    const response = await auth.signInWithEmailAndPassword(email, password);
-    console.log(response)
+    await auth.signInWithEmailAndPassword(email, password);
     return ['success', 'You have successfully logged in']
   } catch (err) {
     return ['error', err.message]
   }
 };
 
-const registerWithEmailAndPassword = async (firstname, lastname, email, password) => {
+const registerWithEmailAndPassword = async (email, password) => {
   try {
-    const res = await auth.createUserWithEmailAndPassword(email, password);
-    const user = res.user;
+    const response = await auth.createUserWithEmailAndPassword(email, password);
+    const user = response.user;
     await db.collection("users").add({
       uid: user.uid,
-      firstname,
-      lastname,
       authProvider: "local",
       email,
     });
+
+    return ['success', 'Account successfully created']
   } catch (err) {
-    console.error(err);
-    alert(err.message);
+    return ['error', err.message]
   }
 };
 
