@@ -14,7 +14,6 @@ const Register = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   const register = () => {
-    // if (!name) alert('Please enter name');
     registerWithEmailAndPassword(firstname, lastname, email, password);
   };
   useEffect(() => {
