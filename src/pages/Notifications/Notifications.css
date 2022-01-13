@@ -1,0 +1,61 @@
+/* .dashboard {
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  padding: 24px;
+  position: relative;
+}
+.dashboard__container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 7px 14px;
+}
+.dashboard__container .MuiSvgIcon-root {
+  padding: 5px;
+  font-size: 18px;
+  color: #fff;
+  transition: all .08s ease;
+  cursor: pointer;
+  margin: 0 4px
+}
+
+.dashboard__container .MuiSvgIcon-root:hover {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.dashboard__container button {
+  color: #fff;
+  text-transform: capitalize;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 4px;
+  padding: 5px;
+  letter-spacing: 0px;
+  transition: all .08s ease;
+}
+
+.dashboard__container button .MuiButton-startIcon {
+  margin: 0 !important;
+  transition: all .08s ease;
+}
+
+.dashboard__container button:hover {
+  color: rgba(255, 255, 255, 0.55) !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.dashboard__container button:hover span svg {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.dashboard__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  background-color: black;
+} */

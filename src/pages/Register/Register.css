@@ -1,0 +1,65 @@
+.register {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.register__wrapper {
+  /* padding: 2px; */
+  min-width: 100%;
+  max-width: 100%;
+  opacity: 1;
+  background: rgb(15, 21, 53);
+  color: rgb(52, 71, 103);
+  border-radius: 40px;
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid #8e93c5;
+}
+.register__container {
+  width: 560px;
+  padding: 60px;
+  opacity: 1;
+  /* background: rgb(15, 21, 53); */
+  color: rgb(52, 71, 103);
+  /* border-radius: 12px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.register h1,h2,h3,h4,h5 {
+  color: #fff;
+}
+
+.register .MuiOutlinedInput-notchedOutline {
+  display: none;
+}
+
+.register .Mui-focused input {
+  border: 0.5px solid #fff;
+}
+
+.register .MuiOutlinedInput-input {
+  border: 0.5px solid rgb(74, 85, 104);
+  border-radius: 12px;
+  color: #fff;
+  background-color: #0f1535;
+}
+.register .register__btn {
+  background-color: #0077ff;
+  color: #fff;
+  border-radius: 15px;
+  padding: 16px;
+  transition: all .25s ease;
+  /* margin-top: 30px; */
+  margin: 30px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.register .register__btn:hover {
+  /* transform: scale(1.02); */
+  background-color: #2188ff;
+}
