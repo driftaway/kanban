@@ -27,7 +27,7 @@ const Register = () => {
         <form 
           onSubmit={event => {
             event.preventDefault()
-            register()
+            registerWithEmailAndPassword(firstname, lastname, email, password);
           }}
           className='register__container'
         >
@@ -49,7 +49,7 @@ const Register = () => {
             />
           </div>
 
-          <div style={{ width: '100%' }}>
+          <div style={{ width: '100%', marginTop: 20 }}>
             <h4 style={{ margin: '8px 0' }}>Last name</h4>
             <TextField 
               fullWidth
@@ -91,11 +91,10 @@ const Register = () => {
               variant='outlined' 
               value={password}
               onChange={e => setPassword(e.target.value)} 
-              
           />
           </div>
           
-          <Button className='register__btn' fullWidth>Register</Button>
+          <Button type='submit' className='register__btn' fullWidth>Register</Button>
 
           <div style={{ fontSize: 16, color: '#bababa' }}>
             Already have an account? <Link style={{ color: '#fff' }} to='/'>Login</Link>
