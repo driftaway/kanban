@@ -28,13 +28,14 @@ const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (firstname, lastname, email, password) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
     await db.collection("users").add({
       uid: user.uid,
-      name,
+      firstname,
+      lastname,
       authProvider: "local",
       email,
     });

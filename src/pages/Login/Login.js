@@ -42,7 +42,7 @@ const Login = ({ setToastMessage }) => {
           <h2>Sign In</h2>
 
           <div style={{ width: '100%' }}>
-            <h5 style={{ margin: '10px 0' }}>Email</h5>
+            <h5 style={{ margin: '8px 0' }}>Email</h5>
             <TextField 
               fullWidth
               placeholder='Enter email' 
@@ -57,8 +57,8 @@ const Login = ({ setToastMessage }) => {
             />
           </div>
 
-          <div style={{ width: '100%', marginTop: 30 }}>
-            <h5 style={{ margin: '10px 0' }}>Password</h5>
+          <div style={{ width: '100%', marginTop: 20 }}>
+            <h5 style={{ margin: '8px 0' }}>Password</h5>
             
             <TextField 
               fullWidth

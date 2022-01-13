@@ -9,12 +9,13 @@ import './Register.css';
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   const register = () => {
-    if (!name) alert('Please enter name');
-    registerWithEmailAndPassword(name, email, password);
+    // if (!name) alert('Please enter name');
+    registerWithEmailAndPassword(firstname, lastname, email, password);
   };
   useEffect(() => {
     if (loading) return;
@@ -34,13 +35,13 @@ const Register = () => {
           <h1>Sign Up</h1>
 
           <div style={{ width: '100%' }}>
-            <h4 style={{ margin: '10px 0' }}>Full name</h4>
+            <h4 style={{ margin: '8px 0' }}>First name</h4>
             <TextField 
               fullWidth
-              placeholder='Enter full name' 
+              placeholder='Enter first name' 
               variant='outlined'
-              value={name}
-              onChange={e => setName(e.target.value)} 
+              value={firstname}
+              onChange={e => setFirstname(e.target.value)} 
               inputProps={{
                 form: {
                   autocomplete: 'off',
@@ -49,8 +50,24 @@ const Register = () => {
             />
           </div>
 
-          <div style={{ width: '100%', marginTop: 30 }}>
-            <h4 style={{ margin: '10px 0' }}>Email</h4>
+          <div style={{ width: '100%' }}>
+            <h4 style={{ margin: '8px 0' }}>Last name</h4>
+            <TextField 
+              fullWidth
+              placeholder='Enter last name' 
+              variant='outlined'
+              value={lastname}
+              onChange={e => setLastname(e.target.value)} 
+              inputProps={{
+                form: {
+                  autocomplete: 'off',
+                },
+              }}
+            />
+          </div>
+
+          <div style={{ width: '100%', marginTop: 20 }}>
+            <h4 style={{ margin: '8px 0' }}>Email</h4>
             <TextField 
               fullWidth
               placeholder='Enter email' 
@@ -65,8 +82,8 @@ const Register = () => {
             />
           </div>
 
-          <div style={{ width: '100%', marginTop: 30 }}>
-            <h4 style={{ margin: '10px 0' }}>Password</h4>
+          <div style={{ width: '100%', marginTop: 20 }}>
+            <h4 style={{ margin: '8px 0' }}>Password</h4>
             
             <TextField 
               fullWidth
@@ -81,8 +98,8 @@ const Register = () => {
           
           <Button className='register__btn' fullWidth>Register</Button>
 
-          <div style={{ fontSize: 22, color: '#bababa' }}>
-            Already have an account? <Link style={{ color: '#fff' }} to='/'>Login</Link> now.
+          <div style={{ fontSize: 16, color: '#bababa' }}>
+            Already have an account? <Link style={{ color: '#fff' }} to='/'>Login</Link>
           </div>
         </form>
       </div>
