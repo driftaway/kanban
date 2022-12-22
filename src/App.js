@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate('/')
+    if (!user) return navigate('/login')
     if (user && userInfo.length === 0) setUserInfo(user.providerData[0])
   }, [user, loading, userInfo]);
 
@@ -51,7 +51,7 @@ const App = () => {
             <Route path='/notifications' element={<Notifications user={user} />} />
           </>}
         <Route path='/register' element={<Register setToastMessage={setToastMessage} />} />
-        <Route path='/' element={<Login setToastMessage={setToastMessage} />} />
+        <Route path='/login' element={<Login setToastMessage={setToastMessage} />} />
       </Routes>
     </>
   );

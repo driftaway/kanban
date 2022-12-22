@@ -24,7 +24,12 @@ const TopBar = ({ displayName }) => {
           <Notifications onClick={() => navigate('/notifications')} />
           <Settings onClick={() => navigate('/settings')} />
 
-          <PowerSettingsNew onClick={logout} />
+          <PowerSettingsNew 
+            onClick={() => {
+              logout()
+              navigate('/login')
+            }} 
+          />
         </div>
       </header>
     </div>

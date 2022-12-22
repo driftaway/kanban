@@ -16,7 +16,7 @@ const Settings = ({ username, setUsername }) => {
   const handleDeleteUser = async () => {
     try {
       await deleteUser(user)
-      navigate('/')
+      navigate('/login')
     } catch (err) {
       console.log(err)
     }

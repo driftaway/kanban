@@ -84,7 +84,7 @@ const Register = ({ setToastMessage }) => {
           </Button>
 
           <div style={{ fontSize: 16, color: '#bababa' }}>
-            Already have an account? <Link style={{ color: '#fff' }} to='/'>Login</Link>
+            Already have an account? <Link style={{ color: '#fff' }} to='/login'>Login</Link>
           </div>
         </form>
       </div>
